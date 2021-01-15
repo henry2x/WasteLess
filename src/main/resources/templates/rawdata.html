@@ -1,0 +1,22 @@
+ <!DOCTYPE html>  
+ <html>  
+      <head>  
+           <title>Raw Logs for WasteLess</title>  
+      </head>  
+      <body>  
+           <?php   
+           $connect = mysqli_connect("database-1.cg2vn0m8owc4.us-east-1.rds.amazonaws.com:3306", "admin", "55555555", "logs");  
+           $sql = "SELECT * FROM logging_event";  
+           $result = mysqli_query($connect, $sql);  
+           $json_array = array();  
+           while($row = mysqli_fetch_assoc($result))  
+           {  
+                $json_array[] = $row;  
+           }  
+           /*echo '<pre>';  
+           print_r(json_encode($json_array));  
+           echo '</pre>';*/  
+           echo json_encode($json_array);  
+           ?>  
+      </body>  
+ </html> 

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+   xmlns:th="http://www.thymeleaf.org">
+   <!DOCTYPE html>
+ 
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>Log Manager Home</title>
+    </head>
+    <body>
+        <div align="center">
+            <h1>Parsed Log List</h1>
+            <table border="1">
+                <th>event_id</th>
+                <th>level_string</th>
+                <th>thread_name</th>
+				<th>formatted_message</th>
+                 
+                <tr th:each="log: ${parsedlogs}">
+					<td th:text="${log.event_id}">event_id</td>
+
+
+					<td th:text="${log.level_string}">level_string</td>
+					
+					<td th:text="${log.thread_name}">thread_name</td>
+ 
+
+					<td th:text="${log.formatted_message}">formatted_message</td>
+                             
+                </tr>        
+            </table>
+        </div>
+    </body>
+</html>
