@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+   xmlns:th="http://www.thymeleaf.org">
+
+   
+   
+   
+   <!DOCTYPE html>
+<html>
+<head>
+<title>wasteLess</title>
+<!-- <link rel="stylesheet" href="myStylesLogin.css"> -->
+<script>
+
+
+$(document).ready(function() {
+	$('.nav-btn').on('click', function(event) {
+		event.preventDefault();
+		/* Act on the event */
+		$('.sidebar').slideToggle('fast');
+
+		window.onresize = function(){
+			if ($(window).width() >= 768) {
+				$('.sidebar').show();
+			} else {
+				$('.sidebar').hide();
+			}
+		};
+	});
+});
+
+</script>
+
+
+<style>
+@import 'https://fonts.googleapis.com/css?family=Lato:300,400';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body, html {
+	font-family: 'Lato', sans-serif;
+	font-size: 20px;
+	height: 100%;
+	position: relative;
+}
+
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+a {
+	color: #fff;
+	text-decoration: none; 
+}
+
+.nav-btn {
+	width: 100%;
+	height: 35px;
+	padding-top: 4px;
+	color: #D5D3D3;
+	background-color: #212121;			 ;
+	text-align: center;
+	cursor: pointer;
+	display: none;
+}
+.nav-btn:active {
+	background-color: #090909; 
+}
+
+header {
+	height: 50px;
+	width: 100%;
+	background-color: #274C6B;
+	display: none;
+}
+
+header .logo {
+	opacity: 0.9;
+	font-size: 120%;
+	padding-top: 9px;
+	padding-left: 8px;
+	color: #fff;
+}
+header .logo span {
+	font-weight: 300;
+}
+
+.container {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.sidebar {
+	width: 250px;
+	background-color: #302F2F;
+	position: fixed;
+	top: 0px;
+	left: 0;
+	bottom: 0;
+	box-shadow: 1px 0px 10px #777;
+}
+
+.sidebar nav > a {
+	font-size: 150%;
+	display: inline-block;
+	padding: 30px 0px;
+	padding-left: 30px;
+	opacity: 0.7;
+	transition: all 0.2s;
+}
+.sidebar nav > a:hover {
+	opacity: 1;
+}
+
+.sidebar nav a span {
+	font-weight: 300;
+}
+
+.sidebar nav ul {
+	list-style: none;
+}
+
+.sidebar nav ul li {
+	font-size: 70%;
+	padding: 19px 0;	
+	padding-left: 20px;
+	border-bottom: 0.5px solid #111;
+}
+
+.sidebar nav ul li:nth-child(1):hover {
+	background-color: #e67e22;
+}
+
+.sidebar nav ul li:nth-child(1).active {
+	background-color: #e67e22;
+}
+
+.sidebar nav ul li:nth-child(2):hover {
+	background-color: #2980b9;
+}
+
+.sidebar nav ul li:nth-child(2).active {
+	background-color: #2980b9;
+}
+
+.sidebar nav ul li:nth-child(3):hover {
+	background-color: #16a085;
+}
+
+.sidebar nav ul li:nth-child(3).active {
+	background-color: #16a085;
+}
+
+.sidebar nav ul li:nth-child(4):hover {
+	background-color: #8e44ad;
+}
+
+.sidebar nav ul li:nth-child(4).active {
+	background-color: #8e44ad;
+}
+
+.sidebar nav ul li:nth-child(5):hover {
+	background-color: #f1c40f;
+}
+
+.sidebar nav ul li:nth-child(5).active {
+	background-color: #f1c40f;
+}
+
+
+.sidebar nav ul li a {
+	color: #D7D5D5;
+}
+
+.sidebar nav ul li:hover a{
+	color: #fff;
+}
+
+.main-content {
+	background-color: #fafafa;
+	width: calc(100% - 250px);
+	height: 100%;
+	margin-left: 250px;
+	padding: 20px 30px;
+}
+.main-content .panel-wrapper {
+	margin: 20px 0;
+	box-shadow: 0px 1px 5px #777;
+}
+
+.main-content .panel-wrapper .panel-head {
+	background-color: #FFA500;
+	color: #fff;
+	padding: 10px 10px;
+	border: 1px solid #00A5F2;
+}
+.main-content .panel-wrapper .panel-body {
+	padding: 20px 10px;
+	font-size: 80%;
+}
+
+@media only screen and (max-width: 420px){
+	header {
+		display: block;
+	}
+	.nav-btn {
+		display: block;
+	}
+	.sidebar {
+		position: relative;
+		height: 378px;
+		width: 100%;
+		display: none;
+		margin-bottom: 40px;
+		z-index: 1000;
+	}
+	.main-content {
+		width: 100%;
+		margin-left: 0;
+		z-index: -1;
+		position: relative;
+	}
+}
+
+@media only screen and (max-width: 768px){
+	header {
+		display: block;
+	}
+	.nav-btn {
+		display: block;
+	}
+	.sidebar {
+		position: relative;
+		height: 378px;
+		width: 100%;
+		display: none;
+		margin-bottom: 40px;
+		z-index: 1000;
+	}
+	.main-content {
+		width: 100%;
+		margin-left: 0;
+		z-index: -1;
+		position: relative;
+	}
+}
+#removeButton{
+  background-color: #FFA500;
+  border: none;
+  color: white;
+  padding: 10px 28px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+#tabHead{
+  background-color: #FFA500;
+  border: none;
+  color: white;
+}
+
+.Thead{
+width: 1500px;
+}
+
+.formDiv1{
+  border-radius: 25px;
+  background: #FFA500;
+  padding: 20px;
+  width: 200px;
+  height: 200px;
+  }
+.formDiv2{
+  border-radius: 25px;
+  background: #FFA500;
+  padding: 20px;
+  width: 200px;
+  height: 100px;
+  }
+
+</style>
+
+</head>
+<body>
+
+
+
+
+<header>
+		<div class="logo">Waste<span>Less</span></div>
+	</header>
+	<div class="nav-btn">Menu</div>
+	<div class="container">
+		
+		<div class="sidebar">
+			<nav>
+				<a href="dash.html">Waste<span>Less</span></a>
+				<ul>
+					<li class="active"><a href="#"> </a></li>
+					<li><a href="comingsoon">Account</a></li>
+					<li><a href="comingsoon">About</a></li>
+					<li><a href="comingsoon">Settings</a></li>
+					<li><a href="comingsoon">Help</a></li>
+				
+				<li> 
+		<div class= "formDiv1">
+        <form method="POST" th:action = "@{/addorder}">
+    		<br>Foodbank Name:<br>
+    		<input type="text" id="item_name" name="item_name">
+    		<br>Pickup Time:<br>
+    		<input type="text" id="pickup_time" name="pickup_time">
+			<br>Pickup Date:<br>
+    		<input type="text" id="pickup_date" name="pickup_date">
+ 		
+    		<input type="submit" value="save">
+		</form>
+		
+			
+		</div>
+		</li>
+	
+				
+				
+				
+				</ul>
+			</nav>
+		</div>
+
+		<div class="main-content">
+			<h1>ORDERS</h1>
+			<p>Recycle. Reduce. Reuse</p>
+		
+			<section class="page-content">
+			
+			
+			<table> 
+			<thead id= "tabHead">
+         	<tr>
+           <th class="Thead">Order ID</th>
+           <th class="Thead">Food bank name</th>
+           <th class="Thead">Pickup Time</th> 
+           <th class="Thead">Pickup Date</th>  
+           </tr>
+      		</thead>
+      		
+      		 <tbody>
+        <tbody>
+          <tr th:each="order : ${orders}">
+             <td th:text="${order.id}">Order ID</td>
+             <td th:text="${order.foodbank_name}">Food bank name</td>
+             <td th:text="${order.pickup_time}">Pickup Time</td>   
+             <td th:text="${order.pickup_date}">Pickup Date</td>              
+			 <td>
+
+              <form th:action="@{delete}" method="post">
+                  <input type="hidden" name="id" th:value="${order.id}" />
+                  <button id="removeButton" type="submit" onClick="return confirm('sure?')">Remove</button>
+              </form>
+            </td>
+          </tr>
+          
+        </tbody> 
+        </table>
+
+		</br>
+		</br>
+<!--              -->
+			</div>		
+	</div>
+	
+	</section>
+
+<!--  <h2>App Title</h2>  -->
+
+ 
+ </body>
+</html>

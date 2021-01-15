@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>wasteLess</title>
+<!-- <link rel="stylesheet" href="myStylesLogin.css"> -->
+<script>
+
+
+$(document).ready(function() {
+	$('.nav-btn').on('click', function(event) {
+		event.preventDefault();
+		/* Act on the event */
+		$('.sidebar').slideToggle('fast');
+
+		window.onresize = function(){
+			if ($(window).width() >= 768) {
+				$('.sidebar').show();
+			} else {
+				$('.sidebar').hide();
+			}
+		};
+	});
+});
+
+
+
+function myFunction() {
+
+  var pass = document.getElementById("passname").value;
+  var user = document.getElementById("name").value;
+  if (pass == "abc" && user == "wasteLess") {
+	location.href = "dash.html";
+	}
+   else if(pass == "" || user== " ")
+   {
+	alert("Name and Password must be filled out");
+   }
+  else {
+   alert("User Id and password do not match our records");
+  
+   }
+}
+
+</script>
+
+
+<style>
+@import 'https://fonts.googleapis.com/css?family=Lato:300,400';
+#signupLink{
+color:#FFA500;
+
+}
+#loginButton{
+  background-color: #FFA500;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}}
+
+@import 'https://fonts.googleapis.com/css?family=Lato:300,400';
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+
+background-color: #302F2F;
+
+
+}
+body, html {
+	font-family: 'Lato', sans-serif;
+	font-size: 20px;
+	height: 100%;
+	position: relative;
+}
+
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+a {
+	color: #fff;
+	text-decoration: none; 
+}
+
+
+.main-content {
+	background-color: #fafafa;
+	width: calc(100% - 800px);
+	height: 100%;
+	margin-left: 350px;
+	margin-right:350px;
+	margin-top:50px;
+	margin-bottom:50px;
+	padding: 20px 30px;
+	border-radius: 25px;
+	
+	
+}
+.main-content .panel-wrapper {
+	margin: 20px 0;
+	box-shadow: 0px 1px 5px #777;
+}
+
+.main-content .panel-wrapper .panel-head {
+	background-color: #FFA500;
+	color: #fff;
+	padding: 10px 10px;
+	border: 1px solid #00A5F2;
+}
+.main-content .panel-wrapper .panel-body {
+	padding: 20px 10px;
+	font-size: 80%;
+}
+
+@media only screen and (max-width: 420px){
+	header {
+		display: block;
+	}
+	.nav-btn {
+		display: block;
+	}
+	.sidebar {
+		position: relative;
+		height: 378px;
+		width: 100%;
+		display: none;
+		margin-bottom: 40px;
+		z-index: 1000;
+	}
+	.main-content {
+		width: 100%;
+		margin-left: 0;
+		z-index: -1;
+		position: relative;
+	}
+}
+
+@media only screen and (max-width: 768px){
+	header {
+		display: block;
+	}
+	.nav-btn {
+		display: block;
+	}
+	
+	.main-content {
+		width: 100%;
+		margin-left: 0;
+		z-index: -1;
+		position: relative;
+	}
+}
+
+
+
+</style>
+
+
+
+
+</head>
+<body>
+	<div class="nav-btn"> </div>
+	<div class="container">
+		
+		
+
+		<div class="main-content" id="main">
+			<h1>WasteLess</h1>
+			<p>Recycle. Reduce. Reuse</p>
+				<div class="panel-wrapper">
+				<div class="panel-head">
+					Login
+				</div>
+				<div class="panel-body">
+					
+										<label> Username:</label>
+					  <input type="text" id="name">
+					  </br>
+					  </br>
+					 <label> Password:</label>
+					  <input type="password" id="passname">
+					  </br>
+					  <p><a href="Register.html" id="signupLink">Register</a> </p>
+					
+					 <button type="button" onclick="myFunction()" id="loginButton">Login</button>
+					
+					
+					
+					
+					
+					
+					
+					
+					
+				</div>
+			</div>
+			
+</body>
+</html>

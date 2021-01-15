@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" 
+   xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"/>
+<title>Home</title>
+</head>
+<body>
+ <h2>App Test</h2>
+    <table id="myTable">
+        <thead>
+         <tr>
+           <th>Id</th>
+           <th>First Name</th>
+           <th>Last Name</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr th:each="item : ${items}"action = "@{/inventory}">
+             <td th:text="${item.id}">Item Id</td>
+             <td th:text="${item.name}">Product Name</td>
+             <td th:text="${item.expiry_date}">Expiry (MM-YY)</td>         
+         </tr>
+          
+        </tbody> 
+        <form method="DELETE" th:action = "@{/removeManager/{id}}">
+    		Delete ID::<br>
+    		<input type="text" id="id" name="id">
+    		
+    		<input type="submit" value="save"><br>
+		</form>
+		
+        <form method="POST" th:action = "@{/saveManager}">
+    		First Name:<br>
+    		<input type="text" id="firstName" name="firstName">
+    		<br>Last Name:<br>
+    		<input type="text" id="lastName" name="lastName">
+			<br>Store Id:<br>
+    		<input type="text" id="store_id" name="store_id">
+    		<input type="submit" value="save">
+		</form>
+    </table>
+    <script>
+      function deleteRow(r) {
+        var i = r.parentNode.parentNode.rowIndex;
+        document.getElementById("myTable").deleteRow(i);
+      }
+   </script>
+ </body>
+</html>
